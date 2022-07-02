@@ -285,9 +285,12 @@ section {
   align-items: center;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
 }
 
-.is-hidden {
+.backdrop.is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
@@ -306,12 +309,16 @@ section {
   border-radius: 4px;
 }
 
-.data-modal-close {
+.btn-modal-close {
   position: absolute;
   top: 8px;
   right: 8px;
   width: 30px;
   height: 30px;
+
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  background-color: #ffffff;
   outline: #000000;
 }
 
