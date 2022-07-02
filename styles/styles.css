@@ -15,7 +15,7 @@
   --icon-color: #afb1b8;
 
   /* transition-timing */
-  --cubic-bezier-1: cubic-bezier(0.4, 0, 0.2, 1);
+  --transform-anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 li {
@@ -80,7 +80,6 @@ ul {
   padding: 0 15px;
   margin-right: auto;
   margin-left: auto;
-  /* outline: solid red; */
 }
 
 /* Header */
@@ -122,6 +121,8 @@ header {
   letter-spacing: 0.02em;
   color: var(--secondary-txt-color);
   position: relative;
+
+  transition: color var(--transform-anim);
 }
 
 .nav-link:hover,
@@ -171,6 +172,13 @@ header {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--main-txt-color);
+
+  transition: color var(--transform-anim);
+}
+
+.contact-header:hover,
+.contact-header:focus {
+  color: var(--accent-color);
 }
 
 .contacts-item {
@@ -181,11 +189,6 @@ header {
   margin-left: 50px;
 }
 
-.contact-header:hover,
-.contact-header:focus {
-  color: var(--accent-color);
-}
-
 .head-contacts {
   display: flex;
   margin-left: auto;
@@ -194,6 +197,10 @@ header {
 .icon-contact {
   margin-right: 10px;
   fill: currentColor;
+}
+section {
+  padding-top: 94px;
+  padding-bottom: 94px;
 }
 
 /* Hero */
@@ -217,11 +224,6 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-color: var(--accent-theme);
-}
-
-section {
-  padding-top: 94px;
-  padding-bottom: 94px;
 }
 
 .container.hero {
@@ -254,23 +256,16 @@ section {
   color: var(--tertiary-txt-color);
   background-color: var(--accent-color);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border: 0px;
   border-radius: 4px;
-  border-color: var(--accent-color);
   cursor: pointer;
+
+  transition: background-color var(--transform-anim);
 }
 
 .main-btn:hover,
 .main-btn:focus {
-  font-family: "Roboto";
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.88;
-  text-align: center;
-  letter-spacing: 0.06em;
-  color: var(--tertiary-txt-color);
-  background: #188ce8;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
-  border-radius: 4px;
+  background-color: #188ce8;
 }
 
 .backdrop {
@@ -278,16 +273,20 @@ section {
   z-index: 5;
   top: 0;
   left: 0;
+
   display: flex;
   position: fixed;
   width: 100vw;
   height: 100vh;
   align-items: center;
   justify-content: center;
+
   background-color: rgba(0, 0, 0, 0.2);
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
+
+  transition: opacity var(--transform-anim), visibility var(--transform-anim);
 }
 
 .backdrop.is-hidden {
@@ -315,6 +314,11 @@ section {
   right: 8px;
   width: 30px;
   height: 30px;
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
@@ -479,12 +483,15 @@ section {
   height: 100%;
   border-radius: 50%;
   color: var(--icon-color);
+
+  transition: color var(--transform-anim),
+    background-color var(--transform-anim);
 }
 
 .social-link-item:hover,
 .social-link-item:focus {
-  background-color: var(--accent-color);
   color: #ffffff;
+  background-color: var(--accent-color);
 }
 .social-link {
   fill: currentColor;
@@ -509,6 +516,8 @@ section {
 .customers-link-item {
   border: 1px solid var(--icon-color);
   border-radius: 4px;
+
+  transition: color var(--transform-anim), border-color var(--transform-anim);
 }
 
 .customers-item:not(:last-child) {
@@ -518,8 +527,7 @@ section {
 .customers-link-item:hover,
 .customers-link-item:focus {
   color: var(--accent-color);
-  border: 1px solid var(--accent-color);
-  border-radius: 4px;
+  border-color: var(--accent-color);
 }
 
 .customers-link-item {
@@ -534,6 +542,7 @@ section {
 
 .icon-customers {
   fill: currentColor;
+  transition: color var(--transform-anim), border-color var(--transform-anim);
 }
 
 /* Portfolio */
@@ -560,7 +569,6 @@ section {
   color: var(--secondary-txt-color);
   background: var(--secondary-theme);
   border-radius: 4px;
-  border-color: var(--secondary-theme);
   cursor: pointer;
 }
 
@@ -587,7 +595,7 @@ section {
   position: relative;
   display: block;
 
-  transition: box-shadow 250ms var(--cubic-bezier-1);
+  transition: box-shadow var(--transform-anim);
 }
 
 .work-item-link:hover,
@@ -620,7 +628,7 @@ section {
   justify-content: center;
 
   transform: translateY(100%);
-  transition: transform 250ms var(--cubic-bezier-1);
+  transition: transform var(--transform-anim);
   opacity: 0;
 
   font-size: 18px;
